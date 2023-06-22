@@ -23,16 +23,22 @@
     <script>
         const canvasE1 = document.querySelector("canvas"), canvasCtx = canvasE1.getContext("2d")
         const lineWidth = 15;
-
+        const field = {
+            w:window.innerWidth,
+            h:window.innerWidth,
+            draw: function(){
+            canvasCtx.fillStyle = "#286047";
+            canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+            },
+        }
         function setup() {
-            canvasE1.width = canvasCtx.width = window.innerWidth
-            canvasE1.height = canvasCtx.height = window.innerHeight
+            canvasE1.width = canvasCtx.width = field.w
+            canvasE1.height = canvasCtx.height = field.h
         }
 
         function draw() {
-            //desenhar o campo
-            canvasCtx.fillStyle = "#286047";
-            canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+           
+           field.draw()
 
             const x = window.innerWidth / 2 - lineWidth / 2;
             const y = 0;
